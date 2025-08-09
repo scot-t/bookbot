@@ -1,4 +1,4 @@
-def count_words(text):
+def get_num_words(text):
     """
     Returns the integer count of the words in text input
     """
@@ -22,25 +22,23 @@ def get_char_frequency(text):
     return frequency
 
 
-def count_chars(text):
+def get_num_chars(text):
     """
     Return a list of dictionaries of char:count, sorted high-low by count.
     """
-    # lesson note: since a dictionary is unsorted, we return a list of dictionaries.
-    # do we use dictionaries over tuples so we can sort by key? could you sort a list of tuples?
 
     index = []
     char_freq = get_char_frequency(text)
 
     for item in char_freq:
-        if item.isalpha():
-            index.append({
-                "char": item,
-                "count": char_freq[item]
-                })
+        index.append({
+            "char": item,
+            "num": char_freq[item]
+            })
 
     def sort_on(items):
-        return items["count"]
+        key = "num"
+        return items[key]
 
     index.sort(reverse=True, key=sort_on)
 
